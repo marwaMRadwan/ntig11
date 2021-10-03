@@ -50,7 +50,7 @@
 // )
 
 // let z = [1,5,2,3,6,9,7,4,1,2,58,6,9,75,15,21,5,28]
-let x = [
+let y = [
     {
     userId: 1,
     id: 1,
@@ -112,36 +112,49 @@ let x = [
     body: "quo et expedita modi cum officia vel magni doloribus qui repudiandae vero nisi sit quos veniam quod sed accusamus veritatis error"
     }
     ]
-
+let x = y
 let postWrapper= document.querySelector("#postWrapper")
-
-x.forEach( (item, ind) => {
-    li = document.createElement('li')
-    li.textContent = ind +  item.title
-    postWrapper.appendChild(li)
-    // console.log(item.title)
+let ser = document.querySelector('#ser')
+function draw(){
+    postWrapper.textContent=""
+    x.forEach( (item, ind) => {
+        li = document.createElement('li')
+        li.textContent = ind +  item.title
+        postWrapper.appendChild(li)
+        // console.log(item.title)
+    })
+    
+}
+draw()
+ser.addEventListener('input', function(e){
+    // e.target.value
+    let t = this.value
+    // console.log(t)
+    x = y.filter(item=>{
+    return item.title.includes(t)
 })
-
-let t = x.find((item)=>{
-    return item.title.includes('q')
+draw()
 })
-console.log(t)
+// let t = x.find((item)=>{
+//     return item.title.includes('q')
+// })
+// console.log(t)
 
-let tt = x.findIndex(item=>{
-    return item.title.includes('s')
-})
-console.log(tt)
+// let tt = x.findIndex(item=>{
+//     return item.title.includes('s')
+// })
+// console.log(tt)
 
-let ttt = x.filter(item=>{
-    return item.title.includes('s')
-})
-console.log(ttt)
+// let ttt = x.filter(item=>{
+//     return item.title.includes('s')
+// })
+// console.log(ttt)
 
 
-let tttt = x.every(item=>{
-    return item.title.includes('q')
-})
-console.log(tttt)
+// let tttt = x.every(item=>{
+//     return item.title.includes('q')
+// })
+// console.log(tttt)
 
 
 
