@@ -4,11 +4,9 @@ const heads = [
     { inForm: "taskContent", inView: "Task Content" },
     { inForm: "taskDetails", inView: "Task Details" }
 ]
-
 saveDataToStorage = (data) => {
     localStorage.setItem('myTasks', JSON.stringify(data))
 }
-
 getDataFromStorage = () => {
     let myTasks
     try {
@@ -20,7 +18,6 @@ getDataFromStorage = () => {
     }
     return myTasks
 }
-
 const myTasks = getDataFromStorage()
 if (task) {
     task.addEventListener('submit', function (e) {
@@ -35,7 +32,6 @@ if (task) {
 
 }
 const createMyOwnElements = (element, parent, txt = "", classes = "", attributes = "") => {
-    //create element, append parent , text content, classes, attributes
     let el = document.createElement(element)
     parent.appendChild(el)
     if (txt != '') el.textContent = txt
@@ -43,6 +39,7 @@ const createMyOwnElements = (element, parent, txt = "", classes = "", attributes
     return el
 }
 const drawTable = (myTasks) => {
+    table.textContent=""
     let thead = createMyOwnElements('thead', table)
     createMyOwnElements('th', thead, '#')
     heads.forEach(h => createMyOwnElements("th", thead, h.inView))
@@ -60,14 +57,18 @@ const drawTable = (myTasks) => {
             heads.forEach((h, i) => createMyOwnElements('td', tr, task[h.inForm]))
             let td = createMyOwnElements('td', tr)
             let delbtn = createMyOwnElements('button', td, "delete", "btn btn-danger mx-3")
+            delbtn.addEventListener('click',  function() { deleteItem(i) } )
             let editBtn = createMyOwnElements('button', td, "Edit", "btn btn-warning")
+        
         })
     }
 }
-
+const deleteItem = (index)=>{
+    myTasks.splice(index, 1)
+    saveDataToStorage(myTasks)
+    drawTable(myTasks)
+}
 const table = document.querySelector('#tableData')
 if (table) {
     drawTable(myTasks)
 }
-
-
