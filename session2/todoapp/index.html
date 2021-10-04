@@ -29,9 +29,13 @@
         </div>
     </nav>
     <section class="container my-4">
-      <table class="table table-bordered" id="tableData">
-
-      </table>
+      <form id="editForm" class="d-none">
+        <input name="taskTitle" class="form-control mb-3">
+        <input name="taskContent" class="form-control mb-3">
+        <input name="taskDetails" class="form-control mb-3">
+        <button class="btn btn-success mb-3">edit</button>
+      </form>
+      <table class="table table-bordered" id="tableData"></table>
     </section>
     <script src="js/custom.js"></script>
 </body>

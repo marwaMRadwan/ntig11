@@ -1,0 +1,8 @@
+customrs [] => each customer has id, name, balance
+
+id => auto generate => curent milliseconds
+
+list all customers 
+add balance MUST be less than 10000
+withdraw balance => must be less than current balance
+delete

@@ -19,6 +19,8 @@ getDataFromStorage = () => {
     return myTasks
 }
 const myTasks = getDataFromStorage()
+editForm=document.querySelector('#editForm')
+
 if (task) {
     task.addEventListener('submit', function (e) {
         e.preventDefault()
@@ -59,10 +61,32 @@ const drawTable = (myTasks) => {
             let delbtn = createMyOwnElements('button', td, "delete", "btn btn-danger mx-3")
             delbtn.addEventListener('click',  function() { deleteItem(i) } )
             let editBtn = createMyOwnElements('button', td, "Edit", "btn btn-warning")
-        
+            editBtn.addEventListener('click', function(e){
+                editForm.classList.remove('d-none')
+                editForm.elements.taskTitle.value = myTasks[i].taskTitle
+                editForm.elements.taskContent.value = myTasks[i].taskContent
+                editForm.elements.taskDetails.value = myTasks[i].taskDetails
+                console.log(i)
+                localStorage.setItem('editIndex', i)
+            })
+            
         })
     }
 }
+editForm.addEventListener('submit', function(e){
+    e.preventDefault()
+    let i = localStorage.getItem('editIndex')
+    let task = {
+        taskTitle: editForm.elements.taskTitle.value,
+        taskContent : editForm.elements.taskContent.value,
+        taskDetails :editForm.elements.taskDetails.value
+    }
+    myTasks[i]=task
+    saveDataToStorage(myTasks)
+    editForm.classList.add('d-none')
+    drawTable(myTasks)
+    })
+
 const deleteItem = (index)=>{
     myTasks.splice(index, 1)
     saveDataToStorage(myTasks)
