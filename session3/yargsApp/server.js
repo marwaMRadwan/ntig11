@@ -83,6 +83,19 @@ yargs.command({
         student.addStudent(st)
     }
 })
+
+yargs.command({
+    command:"findStudent",
+    builder:{
+        id:{
+            type:"string",
+            demandOption:true
+        }
+    },
+    handler: function(argv){
+        student.findStudent(argv.id)
+    }
+})
 yargs.argv
 
 

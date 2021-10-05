@@ -29,6 +29,12 @@ class Student{
         all.push(studentData)
         writeData(all)
     }
+    static findStudent(studentId){
+        let all = readData()
+        let single = all.find(stu=> stu.id == studentId)
+        if(!single) return console.log('student not found')
+        console.log(single)
+    }
 }
 
 module.exports = Student
