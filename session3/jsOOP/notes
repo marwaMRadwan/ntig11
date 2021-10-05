@@ -1,0 +1,26 @@
+primitive => number, string, boolean
+null
+objects => array, object, class, constructor, tuple, functions
+
+any
+    - union
+    
+    - primitive
+        --> number, enum, bigInt, boolean, string, symbol
+
+    - object
+        --> class array interface function tuple
+
+    -intersection
+
+    void
+    null
+    undefined
+
+
+index.html
+custom.js => event handler for html
+apicall => class contain function to return api response
+
+
+

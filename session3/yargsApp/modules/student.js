@@ -35,6 +35,7 @@ class Student{
         if(!single) return console.log('student not found')
         console.log(single)
     }
+    
 }
 
 module.exports = Student

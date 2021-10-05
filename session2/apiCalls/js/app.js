@@ -3,12 +3,11 @@ posts?_limit=10   => userId, id, title, body
 https://jsonplaceholder.typicode.com/users  =>  id, name, username
 https://jsonplaceholder.typicode.com/todos?_limit=10 => userId, id, title
 */
-
 const commonURL = "https://jsonplaceholder.typicode.com/"
 const APIList = [
     {
         txt:"Posts",
-        url: `${commonURL}posts`,
+        url: `${commonURL}posts`, //https://jsonplaceholder.typicode.com/posts
         dataModel : [ "userId", "id", "title"]
     },
     {

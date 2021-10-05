@@ -96,6 +96,7 @@ yargs.command({
         student.findStudent(argv.id)
     }
 })
+
 yargs.argv
 
 
