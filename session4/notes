@@ -1,0 +1,65 @@
+variables
+if
+switch
+loops
+functions
+arrays
+objects
+class
+dom
+
+customer => add, edit(withdraw, add balance), delete, show
+add=> form get data=> put object => push data to array
+edit => array findIndex => object => update array index  condition
+delete search , splice or filter
+show => loop 
+
+* file hold data => .json     => fs (read, write) file data 
+* add => (  yargs ) => command => add => data {} => push
+* delete => get id => filter or splice index
+* show => loop 
+* edit=> id , new balance => check balnce => error msg or find id index =>  edit balance
+
+tasks , users 
+
+user => id, name, job,email, tasks => [ { taskTitle, task details, created at } ]
+user= {
+    id:1,
+    name:x
+    job:y
+    tasks:[
+        {id, taskTitle: t, taskD:d, cat : 5/10 },
+
+    ]
+}
+- add user => 
+        id=> 14 number, start with 1,2,3, required, unique
+        name => between 3 to 20 char, required, chars only
+        job => [developer, instructor, ceo, employee] 
+        email=> unique, email
+
+- add task to user => 
+        id user 
+        details {title, details }
+- delete task
+
+- show all users 
+- search user => type, data
+- edit
+- delete
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
