@@ -49,9 +49,12 @@ user= {
 - delete
 
 
-
-
-
+read file =>
+    * file not found  
+    * file contain json errors
+    * file doesn't have array
+    let data = [ ]
+    *** no errors file return buffer => convert buffer to json
 
 
 
