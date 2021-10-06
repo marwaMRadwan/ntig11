@@ -41,11 +41,15 @@ user= {
 - add task to user => 
         id user 
         details {title, details }
-- delete task
+
+- delete task => userId , taskId 
 
 - show all users 
+
 - search user => type, data
+
 - edit
+
 - delete
 
 
@@ -55,7 +59,9 @@ read file =>
     * file doesn't have array
     let data = [ ]
     *** no errors file return buffer => convert buffer to json
-
+write file 
+    * convert data to string
+    * write to file
 
 
 
