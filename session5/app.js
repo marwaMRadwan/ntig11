@@ -1,7 +1,5 @@
 const https = require('https')
-
 const apiUrl = "https://jsonplaceholder.typicode.com/posts?_limit=30"
-
 const req = https.request(apiUrl, (res)=>{
     let result = ""
     // console.log(res)
@@ -18,3 +16,4 @@ req.on('error', (err)=>{
     console.log(err)
 })
 req.end()
+
