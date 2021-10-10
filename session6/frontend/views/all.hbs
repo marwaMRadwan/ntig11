@@ -1,0 +1,31 @@
+{{>header}}
+{{>navbar}}
+
+<section class="container my-4">
+    <h2 class="text-primary mb-3">All Users</h2>
+    <table class="table table-bordered">
+        <thead>
+            <th class="text-center">id</th>
+            <th class="text-center">name</th>
+            <th class="text-center">user age</th>
+            <th class="text-center">Actions</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="3" class="text-center">No uesrs yet</td>
+            </tr>
+            <tr>
+                <td class="text-center">1</td>
+                <td class="text-center">marwa</td>
+                <td class="text-center">36</td>
+                <td class="text-center">                    
+                    <a href="/single" class="mr-2 btn btn-primary">show user</a>
+                    <a href="/edit" class="mr-2 btn btn-warning">Edit user</a>
+                    <a href="/delete" class="mr-2 btn btn-danger">delete user</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+{{>footer}}
