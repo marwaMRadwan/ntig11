@@ -59,6 +59,18 @@ class UserController{
     static del(req, res){
         res.send('deleted')
     }
+
+    static addPost(req,res){
+        let data = { pageTitle: "Add new user"}
+        res.render('addPost', data)
+    }
+    static sendData(req,res){
+        let user = { id: Date.now(), name: req.body.userName, age: req.body.age }
+        let allUsers = readData()
+        allUsers.push(user)
+        writeData(allUsers)
+        res.redirect('/all')
+}
 }
 
 

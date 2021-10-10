@@ -11,6 +11,9 @@ app.use( express.static( path.join(__dirname, "../public") ) )
 app.set( 'views', path.join(__dirname, '../frontend/views' ))
 hbs.registerPartials(  path.join(__dirname, '../frontend/layouts' ))
 
+app.use(express.urlencoded({extended:true}))
+
 app.use(userRoutes)
+
 app.get("*", (req,res)=>{res.render('errorPage', {pageTitle:"page not found"})})
 module.exports = app
