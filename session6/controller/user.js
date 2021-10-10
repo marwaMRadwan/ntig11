@@ -26,15 +26,20 @@ class UserController{
         res.redirect('/all')
     }
     static showAll(req, res){
+        let allUsers= readData()
         let data = {
-            pageTitle: "show all users"
+            pageTitle: "show all users",
+            allUsers,
+            userStatus: allUsers.length>0? true: false
         }
         res.render('all', data)
     }
     static showSingle(req, res){
-        let data = {
-            pageTitle: "show Single User"
-        }
+        let data = { pageTitle: "show Single User", user:false }
+        let id = req.params.id
+        let allUsers = readData()
+        let user = allUsers.find(el=> el.id == id)
+        if( user ) data.user=user
         res.render('single', data)
     }
     static edit(req, res){
@@ -43,6 +48,10 @@ class UserController{
         }
         res.render('edit', data)
     }
+    static del(req, res){
+        res.send('deleted')
+    }
+
     static add(req, res){
         let data = { pageTitle: "Add new user"}
         if(req.query.userName){
@@ -50,16 +59,12 @@ class UserController{
             let allUsers = readData()
             allUsers.push(user)
             writeData(allUsers)
-            res.redirect('/add')
+            res.redirect('/all')
        }
        else{
         res.render('add', data)
        }
     }
-    static del(req, res){
-        res.send('deleted')
-    }
-
     static addPost(req,res){
         let data = { pageTitle: "Add new user"}
         res.render('addPost', data)
