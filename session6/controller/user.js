@@ -51,7 +51,6 @@ class UserController{
     static del(req, res){
         res.send('deleted')
     }
-
     static add(req, res){
         let data = { pageTitle: "Add new user"}
         if(req.query.userName){
@@ -77,6 +76,4 @@ class UserController{
         res.redirect('/all')
 }
 }
-
-
 module.exports = UserController
