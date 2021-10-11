@@ -1,0 +1,15 @@
+{{>header}}
+{{>navbar}}
+<section class="container my-5">
+    {{#unless user}}
+        <div class="alert alert-danger">user not found</div>
+    {{else}}
+        <div class="border border-danger border-2 p-3">
+            <h3>user Id: {{user.id}}</h3>
+            <h3>user Name: {{user.name}}</h3>
+            <h3>Age: {{user.age}}</h3>
+        </div>
+    {{/unless}}
+
+</section>
+{{>footer}}
