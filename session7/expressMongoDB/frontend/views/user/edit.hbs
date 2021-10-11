@@ -1,18 +1,18 @@
 {{>header}}
 {{>navbar}}
 <section class="my-3 container">
-    <form>
+    <form method="post">
         <div class="mb-3">
-            <input class="form-control" placeholder="user id" disabled>
+            <input class="form-control" placeholder="user id" value="{{user._id}}" disabled name="_id">
         </div>
         <div class="mb-3">
-            <input class="form-control" placeholder="user name">
+            <input class="form-control" placeholder="user name" value="{{user.userName}}" name="userName">
         </div>
         <div class="mb-3">
-            <input class="form-control" placeholder="user age">
+            <input class="form-control" placeholder="user age" value="{{user.age}}" name="age">
         </div>
         <div class="mb-3">
-            <input type="submit" class="btn btn-primary" value="add user">
+            <input type="submit" class="btn btn-primary" value="edit user">
         </div>
     </form>
 </section>
