@@ -1,0 +1,5 @@
+collection for task types => add, edit, delete , list all 
+
+collection for tasks => each task has title, type(one of tasks collection), details 
+
+list all tasks and (crud operations)
