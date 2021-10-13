@@ -5,3 +5,7 @@ posts => post type [image, text, video ], post text, post file
 
 
 
+hoppies: [
+    {name:"x},
+    {name:"y"}
+]
