@@ -17,5 +17,23 @@ class UserController{
             })
         }
     }
+    static activateUser = async(req,res) =>{
+        let userId = req.params.id
+        try{
+            let user = await User.findById(userId)
+            if(!user) res.status(404).send({apiStatus:false, message:"user not found", data:""})
+            user.status=true
+            await user.save()
+            res.status(200).send({apiStatus:true, message:"registered", data: user})
+        }
+        catch(e){
+            res.status(500).send({
+                apiStatus: false,
+                data: e.message,
+                message:"error in activate user"
+            })
+        }
+    }
 }
+
 module.exports = UserController

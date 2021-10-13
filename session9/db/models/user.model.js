@@ -1,6 +1,6 @@
-//name, email, password, phone, gender, image, hoppies[], status
 const mongoose = require("mongoose")
 const validator=require("validator")
+const bcrypt = require('bcryptjs')
 
 const userSchema = new mongoose.Schema({
     name:{
@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
         type:String,
         trim:true,
         required:true,
-        unique:[true, "used before"],
+        unique:true,
         validate(value){
             if(!validator.isEmail(value)) throw new Error("invalid email")
         }
@@ -58,7 +58,11 @@ const userSchema = new mongoose.Schema({
     }
 })
 
-
+userSchema.pre("save", async function(){
+    let user = this
+    if(user.isModified("password")) user.password=await bcrypt.hash(user.password, 12)
+    // user.updatedAt= Date.now()
+})
 
 const User = mongoose.model("User", userSchema)
 module.exports = User
