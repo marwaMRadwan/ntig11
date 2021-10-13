@@ -1,0 +1,7 @@
+user => name, email, password, phone, gender, image, hoppies[], status
+    => register => send email activate , login , logout, update profile, change image , delete account 
+posts => post type [image, text, video ], post text, post file
+    => add post , edit post, show posts, del post
+
+
+
