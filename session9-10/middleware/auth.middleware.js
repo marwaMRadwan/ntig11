@@ -5,11 +5,11 @@ const auth = async(req, res, next) =>{
         const token = req.header("Authorization").replace("Bearer ", "")
         const decoded = jwt.verify(token, process.env.JWTTOKEN);
         const user = await User.findOne({_id: decoded._id, 'tokens.token': token})
-// res.send(user)
         if(!user) throw new Error('unauthorized')
         req.user = user
         req.token=token
-                next()
+        // res.send(req.user)
+        next()
     }
     catch(e){ res.status(500).send({apiStatus:false, data: e, message:"unauthorized"})}
     next()

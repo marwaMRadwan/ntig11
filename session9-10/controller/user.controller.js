@@ -1,3 +1,4 @@
+const mongoose =require("mongoose")
 const User = require("../db/models/user.model")
 const emailSetting = require('../helper/email.helper')
 const generateTxt = require("../helper/generateEmailTxt")
@@ -37,15 +38,20 @@ class UserController{
     static addHoppies = async(req, res)=>{
         try{
             req.user.hoppies.push(req.body)
-            await req.user.save()
-            res.status(200).send({
-                apiStatus: true,
-                data: req.user,
-                message:"added successfuly"
-            })
+            res.send(req.user)
+            // await req.user.save()
+            // res.status(200).send({
+            //     apiStatus: true,
+            //     data: req.user,
+            //     message:"added successfuly"
+            // })
         }
         catch(e){
-            res.status(500).send({apiStatus:false, data:e.message, message:"error adding hoppy"})
+            res.status(500).send({
+                apiStatus:false, 
+                data:e.message, 
+                message:"error adding hoppy"
+            })
         }
     }   
     static login = async(req,res)=>{
@@ -65,6 +71,14 @@ class UserController{
             data:req.user,
             message:"user data loaded"
         })
+    }
+    static logout = async(req, res)=>{
+        try{
+            res.send(req.user)
+        }
+        catch(e){
+            res.send(e)
+        }
     }
 }
 
