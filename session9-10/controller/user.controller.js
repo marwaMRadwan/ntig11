@@ -60,6 +60,9 @@ class UserController{
             res.status(500).send({apiStatus: false, data:e.message, message:"invalid login"})
         }
     }
+    static profile = async(req,res)=>{
+        res.send('test')
+    }
 }
 
 module.exports = UserController
