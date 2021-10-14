@@ -52,8 +52,9 @@ class UserController{
     }   
     static login = async(req,res)=>{
         try{
-            const user = await User.loginUser(req.body.email, req.body.password)
-            res.status(200).send({apiStatus:true, data:user, message:"logged in success"})
+            const userData = await User.loginUser(req.body.email, req.body.password)
+            const token = await userData.generateToken()
+            res.status(200).send({apiStatus:true, data:{userData, token}, message:"logged in success"})
         }
         catch(e){
             res.status(500).send({apiStatus: false, data:e.message, message:"invalid login"})
