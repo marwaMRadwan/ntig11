@@ -36,13 +36,11 @@ class UserController{
     }
     static addHoppies = async(req, res)=>{
         try{
-            const userData = await User.findById(req.params.id)
-            if(!userData) res.status(404).send({apiStatus:false, data:"", message:"user not found"})
-            userData.hoppies.push(req.body)
-            await userData.save()
+            req.user.hoppies.push(req.body)
+            await req.user.save()
             res.status(200).send({
                 apiStatus: true,
-                data: userData,
+                data: req.user,
                 message:"added successfuly"
             })
         }
@@ -61,7 +59,12 @@ class UserController{
         }
     }
     static profile = async(req,res)=>{
-        res.send('test')
+        res.status(200).send({
+            
+            apiStatus:true,
+            data:req.user,
+            message:"user data loaded"
+        })
     }
 }
 
