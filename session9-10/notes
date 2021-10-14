@@ -10,3 +10,6 @@ num*50/3-7 to base64 * pass + data.now()   14712852
 123
 
 user{ name:nnn, pass:147128521, status:false} => save isModified
+
+authorization  -  authentication
+

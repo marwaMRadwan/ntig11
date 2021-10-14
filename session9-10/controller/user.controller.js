@@ -50,6 +50,15 @@ class UserController{
             res.status(500).send({apiStatus:false, data:e.message, message:"error adding hoppy"})
         }
     }   
+    static login = async(req,res)=>{
+        try{
+            const user = await User.loginUser(req.body.email, req.body.password)
+            res.status(200).send({apiStatus:true, data:user, message:"logged in success"})
+        }
+        catch(e){
+            res.status(500).send({apiStatus: false, data:e.message, message:"invalid login"})
+        }
+    }
 }
 
 module.exports = UserController
