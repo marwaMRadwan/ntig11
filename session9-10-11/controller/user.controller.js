@@ -99,6 +99,34 @@ class UserController{
             res.send(e)
         }
     }
+    static addImg = async(req, res)=>{
+        try{
+            if(!req.file) throw new Error ("file not found")
+            req.user.image = req.file.path.replaceAll("\\", "/")    // \\  /
+            await req.user.save()
+            res.status(200).send({apiStatus:true, data: req.user, message:"profile image updated"})
+        }
+        catch(e){
+            res.status(500).send({ apiStatus:false, data:e.message, message:"error add image" })
+        }
+    }
+    static addImage = async (req, res) => {
+        try {
+          req.user.image = req.file.path;
+          await req.user.save();
+          res.status(200).send({
+            apiStatus: true,
+            data: req.user,
+            message: " image added successfuly",
+          });
+        } catch (e) {
+          res.status(500).send({
+            apiStatus: false,
+            data: e.message,
+            message: "error adding image",
+          });
+        }
+    };
 }
 
 module.exports = UserController

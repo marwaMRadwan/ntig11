@@ -61,7 +61,13 @@ const userSchema = new mongoose.Schema({
 },
     {timestamps:true}
 )
-
+userSchema.methods.toJSON = function(){
+    const data = this.toObject()
+    delete data.password
+    delete data.__v
+    delete data.tokens
+    return data
+}
 userSchema.pre("save", async function(){
     let user = this
     if(user.isModified("password")) user.password=await bcrypt.hash(user.password, Number(process.env.bcryptCyles))

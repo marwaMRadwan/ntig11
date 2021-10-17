@@ -9,7 +9,7 @@ router.post('/login', UserController.login)
 router.get('/profile',auth, UserController.profile)
 router.post("/logoutAll", auth, UserController.logoutAll)
 router.post("/logout", auth, UserController.logout)
-router.post('/addImg', upload.single('img'), (req,res)=>{
-    res.send(req.file)
-})
+router.post('/addImg',auth, upload.single("img"),UserController.addImg)
+router.post("/addimage", auth, upload.single("img"), UserController.addImage);
+
 module.exports = router

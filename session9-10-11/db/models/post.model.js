@@ -1,8 +1,10 @@
-// post type , txt, file   => txt, image, video
-
-// type => txt  => txt required
 const mongoose = require("mongoose")
 const postSchema = mongoose.Schema({
+    userId:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"User",
+        required:true
+    },
     postType:{
         type:String,
         trim:true,

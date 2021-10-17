@@ -1,5 +1,6 @@
 const router = require('express').Router()
+const auth = require("../middleware/auth.middleware")
+const postController = require('../controller/post.controller')
 
-router.get("/test", (req, res)=> res.send("test post"))
-
+router.post('/add', auth, postController.addPost)
 module.exports = router
