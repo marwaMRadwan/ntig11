@@ -18,5 +18,8 @@ const postRoutes = require('../routes/post.routes')
 
 app.use('/user',userRoutes)  // 45 r   /user/x
 app.use('/post',postRoutes)  // 35 r => app.get('/x')  /post/x
-
+// const multer  = require('multer')
+// const upload = multer({ dest: 'uploads/' })
+// app.post('/profile', upload.single('avatar'), function (req, res, next) {
+// })
 module.exports = app
