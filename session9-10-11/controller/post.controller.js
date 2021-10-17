@@ -13,5 +13,15 @@ class Post{
             res.status(500).send({apiStatus:false, data:e.message, message:"error adding post"})
         }
     }
+    static myPosts = async(req, res) =>{
+        try{
+            await req.user.populate('myPosts')
+            res.send(req.user.myPosts)
+        }
+        catch(e){
+            res.status(500).send({apiStatus:false, data:e.message, message:"error adding post"})
+        }
+
+    }
 }
 module.exports = Post
