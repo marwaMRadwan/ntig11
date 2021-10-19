@@ -1,0 +1,20 @@
+use bootstrap
+use fontawsome
+page=> navbar, slider , services( 3 cards ), contact us
+
+
+
+// generate app 
+ng new appName
+//run app
+ng serve  or ng s 
+add --open or --o  or -o or -open to open on browser
+
+add --port=num  to change port
+
+//add any style or js lib inside angular.json on architect build object
+
+//to create component
+ng g c componentName or ng generate component componentName
+
+
