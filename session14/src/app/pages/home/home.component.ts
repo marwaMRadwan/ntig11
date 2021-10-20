@@ -137,5 +137,13 @@ searchKey = ""
   filterData(){
     this.data = this.mainData.filter(item=> item.title.includes(this.searchKey) )
   }
+  status : boolean= false
+  name="mArWa"
+  d : Date = new Date()
+  x=50.232
+  changeStatus(){
+    this.status = !this.status
+  }
+
 
 }

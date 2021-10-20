@@ -1,23 +1,2 @@
 <section class ="container my-5">
-    <!-- <div *ngIf="!status; else elseDiv">
-        <p class="alert alert-primary">
-            test
-        </p>
-    </div>
-    <ng-template #elseDiv>
-        <p class="alert alert-danger">
-            test not
-        </p>
-    </ng-template> -->
-    <ng-template *ngIf="status; then thenDiv; else elseDiv"></ng-template>
-    <ng-template #thenDiv>
-        <p class="alert alert-primary">
-            test then
-        </p>
-    </ng-template>
-    <ng-template #elseDiv>
-        <p class="alert alert-danger">
-            test else
-        </p>
-    </ng-template>
 </section>
