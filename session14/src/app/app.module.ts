@@ -8,6 +8,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { PostsComponent } from './pages/posts/posts.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { Err404Component } from './pages/err404/err404.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FooterComponent } from './shared/footer/footer.component';
     ContactComponent,
     PostsComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    Err404Component
   ],
   imports: [
     BrowserModule,

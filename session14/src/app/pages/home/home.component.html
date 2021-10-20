@@ -1,1 +1,23 @@
-<p>home works!</p>
+<section class="container my-3">
+    <div class="mb-4">
+        <input class="form-control" placeholder="keyword to search">
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <th>#</th>
+            <th>userId</th>
+            <th>id</th>
+            <th>title</th>
+            <th>body</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let post of data; let index = index">
+                <td>{{index+1}}</td>
+                <td>{{post.userId}}</td>
+                <td>{{post.id}}</td>
+                <td>{{post.title}}</td>
+                <td>{{post.body}}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
