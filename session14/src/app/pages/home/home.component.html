@@ -1,6 +1,6 @@
 <section class="container my-3">
     <div class="mb-4">
-        <input class="form-control" placeholder="keyword to search">
+        <input class="form-control" placeholder="keyword to search" [(ngModel)]="searchKey" (keyup)="filterData()">
     </div>
     <table class="table table-bordered">
         <thead>

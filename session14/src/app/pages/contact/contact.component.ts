@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
+  monthNum = 1
   constructor() { }
 
   ngOnInit(): void {

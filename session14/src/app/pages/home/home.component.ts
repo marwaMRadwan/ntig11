@@ -6,7 +6,7 @@ import { Posts } from 'src/app/interfaces/posts'
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+searchKey = ""
   data: Posts[] = [
     {
     userId: 1,
@@ -129,9 +129,13 @@ export class HomeComponent implements OnInit {
     body: "qui consequuntur ducimus possimus quisquam amet similique suscipit porro ipsam amet eos veritatis officiis exercitationem vel fugit aut necessitatibus totam omnis rerum consequatur expedita quidem cumque explicabo"
     }
     ]
+    mainData = this.data
   constructor() { }
 
   ngOnInit(): void {
+  }
+  filterData(){
+    this.data = this.mainData.filter(item=> item.title.includes(this.searchKey) )
   }
 
 }

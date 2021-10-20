@@ -1,1 +1,14 @@
-<p>contact works!</p>
+<section class="container my-4">
+    <div class="mb-4">
+        <input class="form-control" placeholder="keyword to search" [(ngModel)]="monthNum" >
+    </div>
+
+    <div [ngSwitch]="monthNum">
+        <li *ngSwitchCase="1">jan</li>
+        <li *ngSwitchCase="2">feb</li>
+        <li *ngSwitchCase="3">mar</li>
+        <li *ngSwitchCase="4">apr</li>
+        <li *ngSwitchCase="5">may</li>
+        <li *ngSwitchDefault>other number</li>
+    </div>
+</section>
