@@ -9,12 +9,10 @@ import { MyserviceService } from 'src/app/services/myservice.service';
 export class PhotosComponent implements OnInit {
   images:any[] =[]
   constructor(private _myService: MyserviceService) { }
-
   ngOnInit(): void {
     this._myService.getPhotos().subscribe(d=>{
       this.images = d
       console.log(d)
     })
   }
-
 }

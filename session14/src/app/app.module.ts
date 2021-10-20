@@ -12,6 +12,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { Err404Component } from './pages/err404/err404.component';
 import { PhotosComponent } from './pages/photos/photos.component';
+import { SingleComponent } from './pages/single/single.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PhotosComponent } from './pages/photos/photos.component';
     NavbarComponent,
     FooterComponent,
     Err404Component,
-    PhotosComponent
+    PhotosComponent,
+    SingleComponent
   ],
   imports: [
     BrowserModule,

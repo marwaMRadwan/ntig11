@@ -12,4 +12,8 @@ export class MyserviceService {
   getPhotos():Observable<any>{
     return this._http.get('https://jsonplaceholder.typicode.com/photos?_limit=12')
   }
+
+  getSingleImg(item:any):Observable<any>{
+    return this._http.get( `https://jsonplaceholder.typicode.com/photos/${item}`)
+  }
 }
