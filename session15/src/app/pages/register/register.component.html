@@ -1,6 +1,20 @@
 <h4>Template driven form</h4>
+{{ register.value | json }}
+<br>submitted: {{register.submitted}}
+<br>touched: {{register.touched}}
+<br>dirty: {{register.dirty}}
+<br>valid: {{register.valid}}
+<br>invalid: {{register.invalid}}
+<p>{{register.value.name}}</p>
+
 <form #register="ngForm" (ngSubmit)="onRegister(register)">
-    <input name="name" placeholder="name" ngModel><br>
+    <input name="name" placeholder="name" required ngModel  #name="ngModel"> <br>
+    <div>
+        <br>touched: {{name.touched}}
+<br>dirty: {{name.dirty}}
+<br>valid: {{name.valid}}
+<br>invalid: {{name.invalid}}
+    </div>
     <input name="email" placeholder="email" ngModel><br>
     <input name="phone" placeholder="phone" ngModel><br>
     <input name="age" placeholder="age" ngModel><br>

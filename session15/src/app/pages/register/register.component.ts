@@ -11,5 +11,11 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-onRegister(data:any){ console.log(data.value)}
+  onRegister(data:any){ 
+    if(data.valid){
+      console.log(data.value)
+      data.reset()
+    }
+    else { console.log("form is invalid")}
+  }
 }
