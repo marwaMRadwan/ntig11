@@ -1,0 +1,14 @@
+<h4>Template driven form</h4>
+<form #register="ngForm" (ngSubmit)="onRegister(register)">
+    <input name="name" placeholder="name" ngModel><br>
+    <input name="email" placeholder="email" ngModel><br>
+    <input name="phone" placeholder="phone" ngModel><br>
+    <input name="age" placeholder="age" ngModel><br>
+    <select name="gender" ngModel>
+        <option value="male">male</option>
+        <option value="female">female</option>
+    </select>
+        <br>
+    <input name="password" placeholder="password" ngModel><br>
+    <button>submit</button>
+</form>
