@@ -1,4 +1,4 @@
-
+{{msg}}
 <form #register="ngForm" (ngSubmit)="onRegister(register)">
     <input placeholder="name" name="name" required minlength="3" maxlength="15" [(ngModel)]="user.name" #name="ngModel" > 
     <div *ngIf="name?.invalid && (name.touched || register.submitted || name.dirty)">
@@ -12,6 +12,7 @@
     <div *ngIf="email?.invalid && (email.touched || register.submitted || email.dirty)">
         <li *ngIf="email.errors?.required">required</li>
         <li *ngIf="email.errors?.email">must be an email</li>
+        <!-- <li *ngIf="msg">email used before</li> -->
     </div>
 
     <input name="phone" placeholder="phone" [(ngModel)]="user.phone" #phone="ngModel"
