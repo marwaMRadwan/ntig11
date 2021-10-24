@@ -1,0 +1,28 @@
+
+<form #register="ngForm" (ngSubmit)="onRegister(register)">
+    <input placeholder="name" name="name" required minlength="3" maxlength="15" [(ngModel)]="user.name" #name="ngModel" > 
+    <div *ngIf="name?.invalid && (name.touched || register.submitted || name.dirty)">
+        <!-- for errors
+        {{name.errors |json}} -->
+        <li *ngIf="name.errors?.required">required</li>
+        <li *ngIf="name.errors?.minlength">minimum chars must be {{name.errors?.minlength.requiredLength}} and you entered {{name.errors?.minlength.actualLength}}</li>
+    </div>
+
+    <input name="email" placeholder="email" [(ngModel)]="user.email" #email="ngModel" required email>
+    <div>for errors</div>
+    <input name="phone" placeholder="phone" [(ngModel)]="user.phone" #phone="ngModel"
+    required minlength="11" maxlength="11">
+    <div>for errors</div>
+    <input name="age" placeholder="age" [(ngModel)]="user.age" #age="ngModel" type="number">
+    <div>for errors</div>
+    <select name="gender" [(ngModel)]="user.gender" #gender="ngModel">
+        <option value="male">male</option>
+        <option value="female">female</option>
+    </select>
+    <div>for errors</div>
+
+    <input name="password" placeholder="password" [(ngModel)]="user.password" #password="ngModel">
+    <div>for errors</div>
+
+    <button>submit</button>
+</form>
