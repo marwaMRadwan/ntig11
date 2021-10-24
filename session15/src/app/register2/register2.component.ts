@@ -25,16 +25,9 @@ export class Register2Component implements OnInit {
     if(userData.valid){
       console.log(this.user)
       this._data.register(this.user).subscribe(
-        (data)=>{ 
-this.msg= data.message
-        },
-        (e) => {
-          this.msg=e.error.message
-          console.log(e.error.message)
-        },
-        ()=>{
-          userData.resetForm()
-        }
+        (data)=>{  this.msg= data.message },
+        (e) => { this.msg=e.error.message; console.log(e.error.message) },
+        ()=>{ userData.resetForm() }
         )
       
     }
