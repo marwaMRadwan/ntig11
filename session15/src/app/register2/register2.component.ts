@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-register2',
@@ -16,13 +17,20 @@ export class Register2Component implements OnInit {
     password:"",
     phone:""
   }
-  constructor() { }
+  constructor(private _data:DataService) { }
 
   ngOnInit(): void {
   }
   onRegister(userData:NgForm){
     if(userData.valid){
       console.log(this.user)
+      this._data.register(this.user).subscribe(data=>{
+        console.log(data)
+      })
+      userData.resetForm()
     }
+  }
+  test(x:any){
+    console.log(x)
   }
 }

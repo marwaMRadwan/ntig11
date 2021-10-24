@@ -9,20 +9,32 @@
     </div>
 
     <input name="email" placeholder="email" [(ngModel)]="user.email" #email="ngModel" required email>
-    <div>for errors</div>
+    <div *ngIf="email?.invalid && (email.touched || register.submitted || email.dirty)">
+        <li *ngIf="email.errors?.required">required</li>
+        <li *ngIf="email.errors?.email">must be an email</li>
+    </div>
+
     <input name="phone" placeholder="phone" [(ngModel)]="user.phone" #phone="ngModel"
-    required minlength="11" maxlength="11">
-    <div>for errors</div>
+    required minlength="11" maxlength="11" pattern="^\d{11}$">
+    <div *ngIf="phone?.invalid && (phone.touched || register.submitted || phone.dirty)">
+        <li *ngIf="phone.errors?.required">required</li>
+        <li *ngIf="phone.errors?.minlength">must be an 11 numbers</li>
+        <li *ngIf="phone.errors?.pattern">must be numbers only</li>
+    </div>    
     <input name="age" placeholder="age" [(ngModel)]="user.age" #age="ngModel" type="number">
-    <div>for errors</div>
-    <select name="gender" [(ngModel)]="user.gender" #gender="ngModel">
+    <select name="gender" [(ngModel)]="user.gender" #gender="ngModel" required>
         <option value="male">male</option>
         <option value="female">female</option>
     </select>
-    <div>for errors</div>
+    <div *ngIf="gender?.invalid && (gender.touched || register.submitted || gender.dirty)">
+        <li *ngIf="gender.errors?.required">required</li>
+    </div>
 
-    <input name="password" placeholder="password" [(ngModel)]="user.password" #password="ngModel">
-    <div>for errors</div>
-
+    <input name="password" placeholder="password" [(ngModel)]="user.password" #password="ngModel" required minlength="4" maxlength="20">
+    <div *ngIf="password?.invalid && (password.touched || register.submitted || password.dirty)">
+        <li *ngIf="password.errors?.required"> required</li>
+        <li *ngIf="password.errors?.minlength"> must be an more than 4 chars</li>
+    </div>
+    <!-- <button [disabled]="register.invalid">submit</button> -->
     <button>submit</button>
 </form>
