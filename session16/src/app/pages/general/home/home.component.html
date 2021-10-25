@@ -1,0 +1,18 @@
+<!-- slider -->
+<carousel>
+    <slide *ngFor="let slide of sliders">
+      <img [src]="slide" alt="first slide" style="display: block; width: 100%;">
+    </slide>
+</carousel>
+<!-- end slider -->
+<section class="container">
+    <div class="row">
+        <div class="col-12 col-md-3 " *ngFor="let r of allRoles">
+            <div class="m-2 border border-primary">
+                <img class="img-fluid" src="{{_global.imgUrl}}/{{r.image}}">
+                <h4 class="text-primary" routerLink="">{{r.title}}</h4>
+                
+            </div>
+        </div>
+    </div>
+</section>
