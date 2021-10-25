@@ -1,0 +1,14 @@
+user:
+register => name, email, password, gender, phone,age   post
+activate/:id  patch
+addHoppies => auth  => name   post
+login  email, password post
+profile => auth   => get
+logoutAll=> auth  => post
+logout=> auth => post
+addImg =>auth
+addimage=> auth
+
+posts:
+add =>  auth  => post
+myPosts => auth => get
