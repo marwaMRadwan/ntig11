@@ -6,9 +6,14 @@ import { Observable } from 'rxjs';
 })
 export class GlobalService {
   public imgUrl = "http://medical.marwaradwan.org/storage/app/public/"
+  apiMainUrl = "http://localhost:3000/"
   constructor(private _http:HttpClient) { }
 
   getAllRoles():Observable<any>{
     return this._http.get('http://medical.marwaradwan.org/api/auth/loadRoles/1')
+  }
+
+  registerUser(user:any):Observable<any>{
+    return this._http.post(`${this.apiMainUrl}user/register`, user)
   }
 }

@@ -1,1 +1,63 @@
-<p>register works!</p>
+<section class="container my-3">
+<form #registerUser="ngForm" (ngSubmit)="register(registerUser)">
+    <div class="row mb-3">
+        <input 
+            class="form-control" 
+            name='name'  #name="ngModel"
+            placeholder="your name" 
+            [(ngModel)]="userData.name" 
+            required minlength="3" maxlength="20" >
+            <span class="alert alert-danger my-3" *ngIf="name.invalid && (registerUser.submitted || name.dirty ||name.touched)">
+                <p *ngIf="name.errors?.required"> * name is required </p>
+                <p *ngIf="name.errors?.minlength"> * name must be more than 3 chars </p>
+                <p *ngIf="name.errors?.maxlength"> * name must be less than 20 chars </p>
+            </span>
+    </div>
+    <div class="row mb-3">
+        <input class="form-control" name='email' placeholder="your email"
+        #mail="ngModel"  [(ngModel)]="userData.email" 
+        required email
+        >
+        <span class="alert alert-danger my-3" *ngIf="mail.invalid && (registerUser.submitted || mail.dirty ||mail.touched)">
+            <p *ngIf="mail.errors?.required"> * email is required </p>
+            <p *ngIf="mail.errors?.email"> * invalid email format </p>
+        </span>
+        <span class="alert alert-danger my-3" *ngIf="emailError!=''">{{emailError}}</span>
+    </div>
+    <div class="row mb-3">
+        <input class="form-control" name='password' placeholder="your password"
+        [(ngModel)]="userData.password" #pass="ngModel" required
+        pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
+        >
+        <span class="alert alert-danger my-3" *ngIf="pass.invalid && (registerUser.submitted || pass.dirty ||pass.touched)">
+            <p *ngIf="pass.errors?.pattern || pass.errors?.required"> * invalid password format (password must contain capital letter, small letter, number, specaial character and more than 8 characters)</p>
+        </span>
+    </div>
+    <div class="row mb-3">
+        <input class="form-control" name='phone' placeholder="your phone"
+        [(ngModel)]="userData.phone" #phone="ngModel" required pattern="^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$">
+        <span class="alert alert-danger my-3" *ngIf="phone.invalid && (registerUser.submitted || phone.dirty ||phone.touched)">
+            <p *ngIf="phone.errors?.pattern || phone.errors?.required"> * invalid phone format </p>
+        </span>
+    </div>
+    <div class="row mb-3">
+        <input class="form-control" name='age' placeholder="your age" [(ngModel)]="userData.age" required type="number" min="0" #age="ngModel">
+        <span class="alert alert-danger my-3" *ngIf="age.invalid && (registerUser.submitted || age.dirty ||age.touched)">
+            <p *ngIf="age.errors?.min || age.errors?.required"> * invalid age must be above 0 </p>
+        </span>
+    </div>
+    <div class="row mb-3">
+        <select class="form-control " name="gender" [(ngModel)]="userData.gender" #gender="ngModel" required>
+            <option disabled selected>select gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <span class="alert alert-danger my-3" *ngIf="gender.invalid && (registerUser.submitted || gender.dirty ||gender.touched)">
+            <p *ngIf="gender.errors?.required"> * required </p>
+        </span>
+    </div>
+    <div class="row mb-3">
+        <button class="btn btn-primary">Register</button>
+    </div>
+</form>
+</section>
