@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
         (e)=>{console.log(e); this.errLogin=e.error.data},
         ()=>{
           this.errLogin=""
+          this._global.isAuthed=true
 this.router.navigate(["/user"])
         }
       )

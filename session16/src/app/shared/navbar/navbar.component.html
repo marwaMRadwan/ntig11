@@ -9,12 +9,16 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" routerLink="">Home</a>
           </li>
+          <ng-container *ngIf="!_global.isAuthed">
           <li class="nav-item">
             <a class="nav-link" routerLink="user/register">register</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="user/login">login</a>
           </li>
+          </ng-container>
+        <ng-container *ngIf="_global.isAuthed">
+
           <li class="nav-item">
             <a class="nav-link" routerLink="user">profile</a>
           </li>
@@ -27,6 +31,7 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="post">my Posts</a>
           </li>
+        </ng-container>
 </ul>
         
       </div>

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GlobalService {
+  public isAuthed = false
   public imgUrl = "http://medical.marwaradwan.org/storage/app/public/"
   apiMainUrl = "http://localhost:3000/"
   constructor(private _http:HttpClient) { }
