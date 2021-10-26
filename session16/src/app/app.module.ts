@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -22,6 +22,8 @@ import { AddComponent } from './pages/posts/add/add.component';
 import { MypostsComponent } from './pages/posts/myposts/myposts.component';
 import { Error404Component } from './pages/general/error404/error404.component';
 import { DoctorcardComponent } from './shared/doctorcard/doctorcard.component';
+import { GlobalService } from './providers/services/global.service';
+import { AuthInterceptor } from './providers/interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,10 @@ import { DoctorcardComponent } from './shared/doctorcard/doctorcard.component';
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    GlobalService,
+    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
