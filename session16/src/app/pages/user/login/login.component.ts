@@ -11,8 +11,8 @@ import { GlobalService } from 'src/app/providers/services/global.service';
 export class LoginComponent implements OnInit {
   errLogin =""
   loginForm = new FormGroup({
-    email: new FormControl('marwa@gmail.com',[Validators.required,  Validators.email]),
-    password:new FormControl('123@Marwad', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$')])
+    email: new FormControl('',[Validators.required,  Validators.email]),
+    password:new FormControl('', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$')])
   })
   constructor(private _global:GlobalService, private router:Router) { }
   ngOnInit(): void {
