@@ -16,4 +16,10 @@ export class GlobalService {
   registerUser(user:any):Observable<any>{
     return this._http.post(`${this.apiMainUrl}user/register`, user)
   }
+  login(user:any):Observable<any>{
+    return this._http.post(`${this.apiMainUrl}user/login`, user)
+  }
+  profile():Observable<any>{
+    return this._http.get(`${this.apiMainUrl}user/profile`)
+  }
 }
