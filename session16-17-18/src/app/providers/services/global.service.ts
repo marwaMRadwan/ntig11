@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GlobalService {
+  public userData :any= null
   public isAuthed = false
   public imgUrl = "http://medical.marwaradwan.org/storage/app/public/"
   apiMainUrl = "http://localhost:3000/"
@@ -27,5 +28,8 @@ export class GlobalService {
     // const myData = new FormData()
     // myData.append("img",file,  file.name)
     return this._http.post(`${this.apiMainUrl}user/addImg`, file)
+  }
+  logout():Observable<any>{
+    return this._http.post(`${this.apiMainUrl}user/logout`, null)
   }
 }
