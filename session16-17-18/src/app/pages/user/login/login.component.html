@@ -1,0 +1,26 @@
+<section class="container my-4">
+    <div class="row justify-content-center ">
+
+        <form class="col-md-6 col-12" [formGroup]="loginForm" (ngSubmit)="login()">
+        <div *ngIf="errLogin!=''" class="alert alert-danger">{{errLogin}}</div>
+            <div class="mb-3">
+                <input placeholder="email" class="form-control" formControlName="email">
+                <div class="alert alert-danger my-3" *ngIf="email?.invalid && ( email?.dirty ||email?.touched)">
+                    <p *ngIf="email?.errors?.required"> * email is required </p>
+                    <p *ngIf="email?.errors?.email"> * invalid email format </p>
+                </div>
+            </div>
+            <div class="mb-3">
+                <input placeholder="password" class="form-control" formControlName="password">
+                <div class="alert alert-danger my-3" *ngIf="password?.invalid && ( password?.dirty ||password?.touched)">
+                    <p *ngIf="password?.errors?.pattern || password?.errors?.required"> * invalid password format (password must contain capital letter, small letter, number, specaial character and more than 8 characters)</p>
+                </div>
+        
+            </div>
+            <div class="mb-3 text-center">
+                <button class="btn btn-primary">login</button>
+            </div>
+        </form>
+    
+    </div>
+</section>
