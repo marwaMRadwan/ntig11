@@ -102,7 +102,7 @@ class UserController{
     static addImg = async(req, res)=>{
         try{
             if(!req.file) throw new Error ("file not found")
-            req.user.image = req.file.path.replaceAll("\\", "/")    // \\  /
+            req.user.image = req.file.path //.replaceAll("\\", "/")    // \\  /
             await req.user.save()
             res.status(200).send({apiStatus:true, data: req.user, message:"profile image updated"})
         }

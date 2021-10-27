@@ -1,7 +1,7 @@
 //run required scripts
 require('dotenv').config()
 require('../db/connection')
-
+const path=require('path')
 //call required packages
 const express = require("express")
 const cors = require("cors")
@@ -11,6 +11,11 @@ app.use(cors())
 //use json and urlencoded middleware 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
+
+app.get("/findAsset/:name", (req,res)=>{
+    let name = path.join(__dirname, "../public/", req.params.name)
+    res.sendFile(name)
+})
 
 //routes files 
 const userRoutes = require('../routes/user.routes')
