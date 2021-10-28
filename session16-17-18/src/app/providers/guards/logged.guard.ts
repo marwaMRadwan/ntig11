@@ -11,7 +11,7 @@ export class LoggedGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot):boolean {
-      if(!localStorage.getItem('testToken')){
+      if(!localStorage.getItem('testToken') || !this._global.isAuthed){
         this._router.navigateByUrl('/user/login')
         return false
       }

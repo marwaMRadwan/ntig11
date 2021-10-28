@@ -11,7 +11,6 @@ import { ProfileComponent } from './pages/user/profile/profile.component';
 import { RegisterComponent } from './pages/user/register/register.component';
 import { NotLoggedGuard } from './providers/guards/not-logged.guard';
 import { LoggedGuard } from './providers/guards/logged.guard';
-import { LoggedtestGuard } from './providers/guards/loggedtest.guard';
 
 const routes: Routes = [
   {path:"", component:HomeComponent},
@@ -19,7 +18,7 @@ const routes: Routes = [
     {path:"", component:ProfileComponent, canActivate:[LoggedGuard]},
     {path:"register", component:RegisterComponent},
     {path:"activate/:id", component:ActivateComponent},
-    {path:"addHoppies", component:AddhoppiesComponent , canActivate:[NotLoggedGuard]},
+    {path:"addHoppies", component:AddhoppiesComponent },
     {path:"login", component:LoginComponent, canActivate:[NotLoggedGuard]}
   ]},
   {path:"post", children:[

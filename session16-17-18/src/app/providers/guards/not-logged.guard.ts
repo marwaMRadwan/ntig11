@@ -15,10 +15,6 @@ constructor(private _global:GlobalService, private _router:Router){}
         this._router.navigateByUrl("/")
         return false
       }
-      else{
-        this._router.navigateByUrl("/user/login")
-        return false
-      }
     return true;
   }
 }
